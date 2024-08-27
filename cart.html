@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function InputCode() {
+            alert('myFunction()');
+        }
+
+        window.onload = function () {
+            const address = JSON.parse(localStorage.getItem('address'));
+            if (address) {
+                document.getElementById('display-address').textContent = `${address.fullName}, ${address.locality}, ${address.pincode}`;
+            }
+        };
+
+        function InputCode() {
+            let person = prompt("Enter your Promocode:");
+        }
+
+        function goToAddressPage() {
+            window.location.href = 'address.html';
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 p-4">
+    <div class="container mx-auto max-w-md bg-white p-4 rounded shadow">
+        <h1 class="text-xl font-bold mb-4">Cart (1 Item)</h1>
+        <h1 class="mb-1 font-medium">Deliver To: </h1>
+
+        <div class="flex justify-between mb-2">
+            <div id="display-address" class="mb-4 font-medium"></div>
+            <button onclick="goToAddressPage()"
+                class="bg-transparent text-blue-500 border border-blue-500 p-2 rounded mb-4">Change</button>
+        </div>
+
+        <div class="border-b-4 border-gray-200 my-3"></div>
+
+        <div class="flex items-center mb-4">
+            <img src="pendrive.webp" alt="Product" class="w-20 h-20 mr-10">
+            <div>
+                <p class="font-medium">HP v236w USB 2.0 64GB Pen Drive</p>
+                <p class="text-gray-600">₹1,593</p>
+                <div class="flex items-center text-green-500">
+                    <img src="truck-solid.svg" alt="Logo" class="w-4 h-4 mr-2">
+                    <span>Get it by 25th Aug</span>
+                </div>
+                <!-- <div class="items-center my-1 mb-0">
+                    <button
+                        class="w-10 h-2 bg-transparent text-black-1 border border-black-500 p-2 rounded mb-4"></button>
+                    <button
+                        class="w-12 h-2 bg-transparent text-black-1 border border-black-500 p-2 rounded mb-1"></button>
+                    <button
+                        class="w-12 h-2 bg-transparent text-black-1 border border-black-500 p-2 rounded mb-4"></button>
+                </div>
+                <h1 class = "mb-0 font-light" >Return & Cancellation</h1> -->
+            </div>
+        </div>
+
+        <div class="border-b border-gray-200 my-4"></div>
+
+        <button onclick="InputCode()" class="text-blue-500 font-medium">Apply Promocode ></button>
+
+        <div class="border-b-4 border-gray-200 my-3"></div>
+
+        <div class="mt-4">
+            <h1 class="flex justify-between font-bold mb-2"> Bag Total</h1>
+            <div class="flex justify-between mb-2">
+                <span>Total MRP</span>
+                <span>₹1,593</span>
+            </div>
+            <div class="flex justify-between mb-2">
+                <span>Shipping Fee</span>
+                <span>₹250</span>
+            </div>
+            <div class="flex justify-between font-bold">
+                <span>Amount Payable</span>
+                <span>₹1,843</span>
+            </div>
+        </div>
+
+        <div class="border-b-4 border-gray-200 my-3"></div>
+
+        <button class="w-full bg-blue-500 text-white p-2 rounded mt-4">Proceed to pay ₹1,843</button>
+    </div>
+</body>
+
+</html>

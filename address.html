@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Address</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function saveAddress() {
+            const fullName = document.getElementById('full-name').value;
+            const mobileNumber = document.getElementById('mobile-number').value;
+            const pincode = document.getElementById('pincode').value;
+            const houseNo = document.getElementById('house-no').value;
+            const locality = document.getElementById('locality').value;
+            const landmark = document.getElementById('landmark').value;
+            const addressType = document.querySelector('input[name="address-type"]:checked').value;
+
+            const address = {
+                fullName,
+                mobileNumber,
+                pincode,
+                houseNo,
+                locality,
+                landmark,
+                addressType
+            };
+
+            localStorage.setItem('address', JSON.stringify(address));
+            window.location.href = 'cart.html';
+        }
+    </script>
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="container mx-auto max-w-md bg-white p-4 rounded shadow">
+        <h1 class="text-xl font-bold mb-4">Add New</h1>
+        
+        <label class="block mb-2">Full Name</label>
+        <input id="full-name" type="text" class="w-full p-2 border border-gray-300 rounded mb-4">
+
+        <label class="block mb-2">Mobile Number</label>
+        <input id="mobile-number" type="text" class="w-full p-2 border border-gray-300 rounded mb-4">
+
+        <label class="block mb-2">Pincode</label>
+        <input id="pincode" type="text" class="w-full p-2 border border-gray-300 rounded mb-4">
+
+        <label class="block mb-2">House No., Apartment Name</label>
+        <input id="house-no" type="text" class="w-full p-2 border border-gray-300 rounded mb-4">
+
+        <label class="block mb-2">Road, Area, Locality</label>
+        <input id="locality" type="text" class="w-full p-2 border border-gray-300 rounded mb-4">
+
+        <label class="block mb-2">Add nearby Shop/Mall or Landmark</label>
+        <input id="landmark" type="text" class="w-full p-2 border border-gray-300 rounded mb-4">
+
+        <label class="block mb-2">Address Type</label>
+        <div class="flex mb-4">
+            <label class="flex items-center mr-4">
+                <input type="radio" name="address-type" value="Home" checked>
+                <span class="ml-2">Home</span>
+            </label>
+            <label class="flex items-center mr-4">
+                <input type="radio" name="address-type" value="Office">
+                <span class="ml-2">Office</span>
+            </label>
+            <label class="flex items-center">
+                <input type="radio" name="address-type" value="Other">
+                <span class="ml-2">Other</span>
+            </label>
+        </div>
+
+        <div class="flex items-center mb-4">
+            <label for="default-address" class="mr-2">Set as Default Address</label>
+            <input type="checkbox" id="default-address" class="form-checkbox h-5 w-5">
+        </div>
+
+        <button onclick="saveAddress()" class="w-full bg-blue-500 text-white p-2 rounded">Continue</button>
+    </div>
+</body>
+</html>
